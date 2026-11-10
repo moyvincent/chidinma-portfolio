@@ -16,3 +16,26 @@
   .hero-art .onboard { bottom: -5px; right: 0; }
   .hero-art .tiny-note { bottom: -32px; }
 }
+
+/* Booking stays visible; mobile tabs expose their horizontal interaction. */
+.framework-scroll-controls{display:none}
+@media (max-width:760px){
+  .nav{gap:10px}
+  .nav .nav-cta{display:inline-flex;flex-shrink:0;padding:10px 12px;gap:8px}
+  .nav .menu{margin-left:0}
+  .steps-viewport{position:relative}
+  .steps-viewport:before,.steps-viewport:after{content:'';position:absolute;top:0;bottom:0;width:30px;z-index:1;pointer-events:none;opacity:0;transition:opacity .2s}
+  .steps-viewport:before{left:0;background:linear-gradient(to right,#141715,transparent)}
+  .steps-viewport:after{right:0;background:linear-gradient(to left,#141715,transparent)}
+  .steps-viewport[data-scroll-left="true"]:before,.steps-viewport[data-scroll-right="true"]:after{opacity:1}
+  .framework-tabs .steps{gap:10px;padding:6px 2px 12px;border-bottom:0;scrollbar-width:none;scroll-snap-type:x proximity}
+  .framework-tabs .steps::-webkit-scrollbar{display:none}
+  .framework-tabs .steps button{padding:13px 15px;min-width:98px;gap:11px;border:1px solid var(--line);border-radius:10px;background:#1c221c;scroll-snap-align:start;transition:background .2s,border-color .2s}
+  .framework-tabs .steps button:hover{border-color:#b8e98665;background:#242e21}
+  .framework-tabs .steps button[aria-selected="true"]{border-color:#b8e98680;background:#b8e98612}
+  .framework-scroll-controls:not([hidden]){display:flex;align-items:center;gap:15px;margin-top:3px}
+  .framework-scroll-controls button{width:32px;height:32px;display:grid;place-items:center;border:1px solid #b8e98655;border-radius:50%;background:#b8e9860c;color:var(--green);padding:0;flex-shrink:0}
+  .framework-scroll-controls button:disabled{opacity:.25;cursor:default}
+  .framework-scroll-track{height:3px;flex:1;background:#ffffff14;border-radius:4px;position:relative;overflow:hidden}
+  .framework-scroll-track span{position:absolute;height:100%;border-radius:4px;background:var(--green)}
+}
